@@ -1,6 +1,9 @@
-# FA - testserver
+The flora arranger is an interactive application for customers to select and visualize the arrangement of funeral boquets and then collectively send them to the Shopify cart for purchase. 
 
-This repo was erected to manage the syncronization of the floral arranger project between Mac and PC workstations. Locally, it will be used for versioning rollbacks after testing experimental features which tend to cause nasty glitches across the JS libraries which are not always immediately visable.
+The ability to see different funeral scenarios in full layout, suggested packages and the ability to customize interactively, enhances customer engagement and substantially increases average transaction spending.
+
+# FA - testserver
+This repo was erected to manage the synchronization of the floral arranger project between Mac and PC workstations. Locally, it will be used for versioning rollbacks after testing experimental features which tend to cause nasty glitches across the JS libraries which are not always immediately visible.
 
 ### Version
 0.1.2
