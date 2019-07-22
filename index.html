@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Arranger.MemorialHelpers.com</title>
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="assets/css/jqu1.11.3_bs3.3.2_bst3.3.2_min.css">
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+	<link href='http://fonts.googleapis.com/css?family=Dancing+Script:700' rel='stylesheet' type='text/css'>  <!-- could remove by fixing the title to the bkground image-->
+	<link href="assets/css/style.css" rel="stylesheet">
+
+	
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	
+<style>
+#landing-main {
+	padding:  5px 15px 15px 15px;
+	background: #222f67; /* Old browsers */
+	background: -moz-linear-gradient(-45deg, #222f67 0%, #c7a9bf 70%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#222f67), color-stop(70%,#c7a9bf)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(-45deg, #222f67 0%,#c7a9bf 70%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(-45deg, #222f67 0%,#c7a9bf 70%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(-45deg, #222f67 0%,#c7a9bf 70%); /* IE10+ */
+	background: linear-gradient(135deg, #222f67 0%,#c7a9bf 70%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#222f67', endColorstr='#c7a9bf',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+#landing-panel{
+	background-color:#CAECF1;
+    max-width: 850px;
+    padding:  0 30px 20px 30px;
+    margin: 0 auto;
+}
+
+.landing-button{
+	width: 235px;
+	height:215px;
+	display: block;
+	margin: 0px auto;
+}
+
+.landing-button:hover{
+    box-shadow: 1px 1px 5px #ff78e9, 0 0 25px #ff78e9, 0 0 10px #ff78e9;
+	filter: none;
+	-webkit-filter: grayscale(0%)	
+}
+
+.pbshopnow{
+	text-decoration: none;
+	font-weight: 400;
+	background: rgba(193, 26, 149, 0.68) none repeat scroll 0% 0%;
+	border: 1px solid #FFF;
+	text-shadow: 0px 1px 1px #000;
+	padding: 12px 20px 8px;
+	line-height: 2;
+	color: #FFF;
+	font-size: 16px;
+	border-radius: 0px;
+	letter-spacing: 1.6px;
+	font-family: "Josefin Sans",sans-serif;
+	text-transform: uppercase;
+	display: inline-block;
+	text-align: center;
+	white-space: nowrap;
+	outline: medium none;
+	cursor: pointer;
+	width:210px;
+	z-index:100;
+	position:absolute; 
+}
+
+.pbshopnow:hover {
+	text-decoration: none;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+    background: rgba(219,183,235,0.77);
+    font-size: 16px;
+    color: #6600CC;
+	}
+	
+#title{
+	display: block;
+	margin: 0 auto;
+	width:80%;
+	opacity: 0.80;
+	filter: alpha(opacity=85); /* For IE8 and earlier */
+	}
+	
+#footerlogo{
+	display: block;
+	margin: 0 auto;
+	bottom: 10px;
+	width:30%;
+	opacity: 0.75;
+	filter: alpha(opacity=75); /* For IE8 and earlier */
+}
+
+
+.pages{
+	position:relative;
+    margin-bottom:10px;
+}
+
+.bodytext{
+    text-align: center;
+    font: 24px arial, sans-serif;
+    margin-bottom: 25px;
+    color: #2a2a2a;
+}
+.attention{
+    font-weight: bold;
+    color: #1e69e4;
+    font-style: italic;
+    text-shadow: 1px 1px #4e5b5d;
+}
+
+p{
+    padding-bottom: 12px;
+}
+.pink{
+    color: #da56c8;
+    }
+.selected{
+    box-shadow: 1px 1px 5px #ff78e9, 0 0 25px #ff78e9, 0 0 10px #ff78e9;
+    }
+img.desaturate {
+	-webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+}
+</style>
+
+
+	
+  </head>
+  <body>
+
+  <div class="container-fluid">
+<div class="row">
+  <div id="landing-main" class="col-md-9 col-sm-8">
+
+  <div id="landing-panel" class="panel panel-default panel-body">
+    <img id="title" src="https://cdn.shopify.com/s/files/1/0790/8529/files/scripty.png" alt="...">
+	<div class="bodytext">
+        <br>
+        <p>Welcome to the Floral Arranger by <span class="attention">Memorial Helpers</span>.</p>
+    <p>Use the floral arranger to visualize the perfect memorial. You can browse the arrangement demos or add and remove pieces to create your tribute.</p>
+
+        <p>When finished, go to the checkout to purchase and your arrangements will be sent to the florist for delivery.</p>
+
+        <p>You can also browse the catalog to shop for individual floral pieces for the services or to send to the family home and we always offer <br><span class="attention pink">Free Delivery!!</span> </p>
+    </div>
+	<img id="footerlogo" src="https://cdn.shopify.com/s/files/1/0790/8529/files/logo-blue.png" alt="...">
+	
+  </div>  <!-- end panel -->
+
+  </div>  <!-- end main screen -->
+  <div   class="col-md-3 col-sm-4">
+  <div class="pages">
+  <img src="https://cdn.shopify.com/s/files/1/0790/8529/files/Arranger.jpg" alt="..." class="img-rounded landing-button selected">
+      <div class="label">
+  <a href="arranger.html" class="pbshopnow">FLORAL ARRANGER</a>
+          </div>
+  </div>
+
+  <div class="pages">
+  <img src="https://cdn.shopify.com/s/files/1/0790/8529/files/Catalog.jpg" alt="..." class="img-rounded landing-button desaturate">
+      <div class="label"><a href="http://memorialhelpers.com/collections" class="pbshopnow">BROWSE CATALOG</a></div>
+  </div>
+  <div class="pages">
+  <img src="https://cdn.shopify.com/s/files/1/0790/8529/files/MHstore.jpg" alt="..." class="img-rounded landing-button desaturate">
+      <div class="label">
+  <a href="http://memorialhelpers.com" class="pbshopnow">WEBSITE HOME</a>
+      </div>
+  </div>
+  
+  </div> <!-- end sidebar -->
+</div>
+</div>
+  
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="assets/js/jq1.11.1_jqu1.11.3_bs3.3.2.js"></script>
+	
+	<script>
+	$.fn.center = function (options) {
+
+	if(options instanceof jQuery) {
+		inside_el = options;
+		options = null
+	}
+	else inside_el = null;
+
+	options = options || {}
+	options.this = options.this || {}
+	options.inside = options.inside || {}
+
+	if (options.this.h == null) options.this.h = 0.5
+	if (options.this.v == null) options.this.v = 0.7
+
+	options.inside.el = $(options.inside.el || inside_el || this.parent())
+	if (options.inside.h == null) options.inside.h = 0.5
+	if (options.inside.v == null) options.inside.v = 0.7
+
+	if (options.hOffset == null) options.hOffset = -110;
+	if (options.vOffset == null) options.vOffset = 0;
+
+	this.css("position","absolute");
+
+	this.css("left", (options.inside.el.width() * options.inside.h - this.width() * options.this.h + options.hOffset) + "px");
+
+	this.css("top", (options.inside.el.height() * options.inside.v - this.height() * options.this.v + options.vOffset)  + "px");
+
+	return this;
+}
+	
+/* use as handler for resize*/
+$(window).resize(adjustLayout);
+/* call function in ready handler*/
+$(document).ready(function(){
+    adjustLayout();
+    /* your other page load code here*/
+})
+
+function adjustLayout(){
+    $(".label").center();
+}
+</script>
+  </body>
+</html>

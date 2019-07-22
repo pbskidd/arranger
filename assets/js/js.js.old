@@ -1,0 +1,509 @@
+
+
+
+
+
+var totalCost = 0;
+var combinedMessage = '';
+
+var arrangements = [];
+var counts = [0];
+var Themes = ["demo_Catholic01","demo_Mom01", "demo_Mom03","demo_Patriot01","demo_Patriot02","demo_Tropical03","demo_Heavenly01",];
+var themeCount =0;
+
+function deleteAll(){
+    $(".dragged2").remove();
+    RemoveAllItems();
+    Write2Bill();
+}
+
+//loop through the demos
+function demobutton(){
+    if (themeCount < Themes.length-1 ){
+        themeCount++;
+    } else {
+        themeCount=0;
+    }
+    deleteAll();
+    window[Themes[themeCount]]();
+}
+
+//loop through the demos-backwards
+function demobuttonback(){
+    if (themeCount == 0 ){
+		themeCount=Themes.length-1; 	
+    } else {
+        themeCount--;
+    }
+    deleteAll();
+    window[Themes[themeCount]]();
+}
+
+function demo_Patriot02(){
+    $( "#frame" ).css('background-image','url(img/casket-closed-med.jpg)');
+	$("#theme-title").html('" Patriot " (closed casket)');
+    autoadd("title='Large Portrait (Man)'",9,578); //picture large, centered
+    autoadd("title='Veteran Flag'",158,247); //flag
+    autoadd("title='Kneeler'",275,393); //kneeler (closed)
+    autoadd("title='Mass-Card Stand'",267,773); //Masscardstand (closed)
+    //autoadd("title='Chapel Candle'",150,182); //Chapel Candle
+    //autoadd("title='Chapel Candle'",150,1028); //Chapel Candle
+    autoadd("sku='T240-2A'",116,40); //spray (left)
+    autoadd("sku='T240-2A'",116,1071); //spray (right)
+    autoadd("sku='T240-1A'",310,115); //basket (left)
+    autoadd("sku='T240-1A'",310,974); //basket (right)
+    autoadd("title='MESSAGE: {BELOVED HUSBAND}'",214,96); //ribbon
+    autoadd("title='MESSAGE: {BELOVED FATHER}'",214,1131); //ribbon
+}
+
+function demo_Tropical03(){
+    $( "#frame" ).css('background-image','url(img/urn-layout.jpg)');
+	$("#theme-title").html('" Tropical Paradise " (cremation)');
+    autoadd("title='Large Portrait (Man)'",9,587); //picture large, centered
+    autoadd("sku='T254-1A'",136,536); //Uspray
+    autoadd("title='Kneeler'",275,478); //kneeler (centered)
+    autoadd("title='Flower Stand (Small)'",427,367); //flowerstand  (left)
+    autoadd("title='Flower Stand (Small)'",427,860); //flowerstand  (right)
+    autoadd("sku='T244-1A'",201,345); //basket (left)
+    autoadd("sku='T244-1A'",201,837); //basket (right)
+    //autoadd("sku='T271-2A'",56,167); //spray (left)
+    //autoadd("sku='T271-2A'",56,943); //spray (right)
+    //autoadd("title='MESSAGE: {BELOVED HUSBAND}'",186,226); //ribbon
+    //autoadd("title='MESSAGE: {BELOVED FATHER}'",186,1003); //ribbon
+}
+
+function demo_Heavenly01(){
+    $( "#frame" ).css('background-image','url(img/casket-med.jpg)');
+	$("#theme-title").html('" Heavenly "');
+    autoadd("sku='T232-3A'",77,648); //cspray
+    autoadd("title='Kneeler'",275,307); //kneeler (open)
+    autoadd("title='Mass-Card Stand'",267,741); //Masscardstand (open)
+    autoadd("title='Small Portrait (Girl)'",115,481); //picture
+    autoadd("sku='T236-1A'",154,40); //spray (far left)
+    autoadd("sku='T232-2A'",135,1092); //spray (far right)
+    autoadd("sku='T248-2A'",60,184); //spray (left)
+    autoadd("sku='TF189-2'",77,938); //spray (right)
+    autoadd("title='Flower Stand (X-Small)'",479,207); //flowerstand  (left)
+    autoadd("title='Flower Stand (X-Small)'",479,1002); //flowerstand  (right)
+    autoadd("sku='T228-1A'",387,40); //basket (far left)
+    autoadd("sku='T228-1A'",387,1077); //basket (far right)
+    autoadd("sku='T216-1A'",330,157); //basket (left)
+    autoadd("sku='T216-1A'",330,954); //basket (right)
+    autoadd("title='MESSAGE: {BELOVED DAUGHTER}'",212,47); //ribbon
+    autoadd("title='MESSAGE: {BELOVED MOTHER}'",140,225); //ribbon
+    autoadd("title='MESSAGE: {BELOVED WIFE}'",135,725); //ribbon
+    autoadd("title='MESSAGE: {BELOVED NIECE}'",165,995); //ribbon
+    autoadd("title='MESSAGE: {BELOVED FRIEND}'",188,1131); //ribbon
+}
+
+function demo_Mom03(){
+    $( "#frame" ).css('background-image','url(img/urn-layout.jpg)');
+	$("#theme-title").html('" Beloved Mother " (cremation)');
+    autoadd("title='Large Portrait (Woman)'",0,583); //picture large, centered
+    autoadd("sku='T250-1A'",80,536); //Uspray
+    autoadd("title='Kneeler'",275,478); //kneeler (centered)
+    autoadd("title='Flower Stand (X-Small)'",460,184); //flowerstand x-small (far left)
+    autoadd("title='Flower Stand (X-Small)'",460,1020); //flowerstand x-small (far right)
+    autoadd("title='Flower Stand (Medium)'",363,338); //flowerstand  (left)
+    autoadd("title='Flower Stand (Medium)'",367,875); //flowerstand  (right)
+    autoadd("sku='T251-1A'",263,163); //vase (far left)
+    autoadd("sku='T251-1A'",263,998); //vase (far right)
+    autoadd("sku='T235-1A'",195,301); //basket (left)
+    autoadd("sku='T235-1A'",196,839); //basket (right)
+    autoadd("title='MESSAGE: {BELOVED WIFE}'",297,343); //ribbon
+    autoadd("title='MESSAGE: {BELOVED MOTHER}'",297,884); //ribbon
+}
+
+function demo_Mom01(){
+    $( "#frame" ).css('background-image','url(img/casket-med.jpg)');
+	$("#theme-title").html('" Beloved Mother "');
+    autoadd("sku='T235-2A'",107,625); //cspray
+    autoadd("sku='T230-2A'",185,282); //roses
+    autoadd("title='Kneeler'",275,307); //kneeler (open)
+    autoadd("title='Small Portrait (Woman)'",115,481); //picture
+    autoadd("title='Flower Stand (X-Small)'",442,179); //flowerstand x-small (left)
+    autoadd("title='Flower Stand (X-Small)'",447,1000); //flowerstand x-small (right)
+    autoadd("sku='T249-4A'",70,31.5); //spray (left)
+    autoadd("sku='T235-1A'",267,144); //basket (left)
+    autoadd("sku='T249-4A'",70,1068.5); //spray (right)
+    autoadd("sku='T235-1A'",272,965); //basket (right)
+    autoadd("title='MESSAGE: {BELOVED WIFE}'",146,737); //ribbon
+    autoadd("title='MESSAGE: {BELOVED MOTHER}'",197,83); //ribbon
+    autoadd("title='MESSAGE: {BELOVED GRANDMOTHER}'",197,1120); //ribbon
+    autoadd("title='Mass-Card Stand'",267,741); //Masscardstand (open)
+}
+
+function demo_Catholic01(){
+    $( "#frame" ).css('background-image','url(img/casket-med.jpg)');
+	$("#theme-title").html('" Catholic "');
+    autoadd("title='Large Crucifix'",0,719); //large crucifix
+    autoadd("sku='T242-2A'",80,661); //cspray
+    autoadd("sku='T260-3A'",53.5,376); //rose rosary
+    autoadd("title='Kneeler'",275,307); //kneeler (open)
+    autoadd("title='Mass-Card Stand'",264,741); //Masscardstand (open)
+    autoadd("sku='HFS-8070'",67,41); //cross (right)
+    autoadd("sku='T226-2A'",263,116); //basket (right)
+    autoadd("sku='T226-1A'",71,1039); //spray (left)
+    autoadd("sku='T226-2A'",263,939); //basket (left)
+    autoadd("title='MESSAGE: {BELOVED WIFE}'",134,726); //ribbon
+    autoadd("title='MESSAGE: {BELOVED MOTHER}'",150,103); //ribbon
+    autoadd("title='MESSAGE: {BELOVED GRANDMOTHER}'",150,1115); //ribbon
+}
+
+function demo_Patriot01(){
+    $( "#frame" ).css('background-image','url(img/casket-med.jpg)');
+	$("#theme-title").html('" Patriot "');
+    autoadd("title='Simple Cross (Small)'",117,489.89); //small cross
+    autoadd("title='Veteran Flag (Scalloped)'",160.5,655.89); //scalloped flag
+    autoadd("title='Kneeler'",275,307); //kneeler (open)
+    autoadd("title='Mass-Card Stand'",264,741); //Masscardstand (open)
+    autoadd("sku='T241-1A'",129,44); //spray (left)
+    autoadd("sku='T240-2A'",74,1070); //spray (right)
+    autoadd("title='MESSAGE: {BELOVED FRIEND}'",176,1136); //ribbon
+    autoadd("title='MESSAGE: {BELOVED SON}'",172,94); //ribbon
+    autoadd("title='Flower Stand (Small)'",433,172); //flowerstand small (left)
+    autoadd("title='Flower Stand (Small)'",433,1054); //flowerstand small (right)
+    autoadd("sku='T240-1A'",218.5,120.5); //basket (right)
+    autoadd("sku='T240-1A'",218.5,1000.5); //basket (left)
+    autoadd("title='MESSAGE: {BELOVED HUSBAND}'",318,183); //ribbon
+    autoadd("title='MESSAGE: {BELOVED FATHER}'",318,1066.5); //ribbon
+}
+
+function autoadd(identifier,topoffset,leftoffset){
+    x = $(".dragImg["+identifier+"]");  //capture item to act upon based upon whatever unique attribute we call it by
+
+    if(!(x.hasClass("furniture"))) {  //if not furniture, then add to bill
+        AddItem(x.attr('title'),x.attr('sku'),x.attr('price'),x.attr('description'),x.attr('src'),x.attr('varID'));
+        Write2Bill();
+    } //end if has class furniture
+
+	//adjust for screen width--using the standard that the themes were made with (subtract also for shadow)
+	leftoffset=(screen.width-1263)/2+leftoffset-10;
+    y = x.clone().appendTo($("#frame"));
+    y.css({top: topoffset, left: leftoffset, position:'absolute'});
+
+    oldWidth= y.attr('width');
+    oldHeight= y.height();  //necessary bc didn't set an attribute --need for firefox
+    y.css("height", (oldHeight*2.5));
+    y.css("width", (oldWidth*2.5));
+    y.removeAttr("id");
+    y.removeClass("dragImg ui-draggable-dragging");
+    y.addClass("dragged2");
+    counts[0]++;
+    y.addClass("item-"+counts[0]);
+
+    y.draggable({
+        //var zIndex = 0;
+        containment:'parent',
+        //start:function(e,ui){ ui.helper.css('z-index',++zIndex); },
+        stop:function(e,ui){
+        }
+    });
+
+    //double click the clone to delete
+    //$(".item-1").dblclick(function() {
+    $(".item-"+counts[0]).dblclick(function() {
+        itemToDelete = $(this).attr('title'); //get handle on what to remove from the array
+        RemoveItem(itemToDelete); //run the array delete on the double-clicked pic's title
+        $(this).remove(); //remove the double-clicked pic
+        Write2Bill();
+    });
+}//end auto add
+
+//theme button called
+$("#autoadd").click(function(){
+    demobutton();
+});
+$("#autoaddback").click(function(){
+    demobuttonback();
+});
+ 
+$(document).ready(function() {
+  
+  //$('.dragImg').addSwipeEvents(function(evt, touch) {
+ //   if (touch.eventType = "doubletap"){
+//	alert( "delete me.");
+//	}
+ //});
+  
+/*!
+ * jQuery Double Tap Plugin.
+ *
+ * Copyright (c) 2010 Raul Sanchez (http://www.appcropolis.com)
+ *
+ * Dual licensed under the MIT and GPL licenses:
+ * http://www.opensource.org/licenses/mit-license.php
+ * http://www.gnu.org/licenses/gpl.html
+ */
+ 
+
+ //delete all
+  $("#trash").click(function(){
+      deleteAll();
+  });
+  
+});  //end-document ready
+
+//color selector
+function colorSelect(colorClass){  
+var res = (".btn"+colorClass).toLowerCase(); 
+ $('.colorbtn').css("border-width", "1px");
+ $(res).css("border-width", "3px");
+ 
+ $(".color-helper").remove(); //hide the color helper label
+ cc = colorClass.slice( 1 );
+ if (cc != "dragImg")
+ {
+ $( ".color-select" ).prepend( "<p class='color-helper'>Showing items containing: <span style='font-weight: bold;'>"+cc+"</span></p>" );
+ }
+    var colorClasses;
+    colorClasses = $(".dragImg.Red, .dragImg.Orange, .dragImg.Pink, .dragImg.Purple, .dragImg.Yellow, .dragImg.White, .dragImg.Green");
+
+    setTimeout(function(){
+        colorClasses.addClass("slower fadeout");
+   }, 100);
+
+    colorClasses.fadeOut( 300,function() {
+	 $(colorClass).show(); 
+	$(colorClass).removeClass("fadeout"); 
+	$(colorClass).removeClass("slower"); 
+  });//hide all colors of selection icons then call the one to show
+ } //end color selector
+
+$(function(){  
+ //Make every clone image unique.  
+   var counts = [0];
+    var resizeOpts = { 
+      handles: "all" ,autoHide:true
+    }; 
+	
+   $(".dragImg").draggable({
+                         helper: "clone",
+                         //Create counter
+                        start: function() { counts[0]++; }
+                        //stop: handleDragStop   //catch trigger of a drop (only the first one)
+                        });
+
+$("#frame").droppable({
+    drop: function(e, ui){
+
+        var oldWidth;
+        var oldHeight;
+        if (ui.draggable.hasClass("dragImg")) {
+            $(this).append($(ui.helper).clone());
+
+           var dragImg = $("#frame .dragImg");
+
+            if (!(ui.draggable.hasClass("furniture"))) {  //if not furniture, then add to bill
+                AddItem(dragImg.attr('title'), dragImg.attr('sku'), dragImg.attr('price'), dragImg.attr('description'), dragImg.attr('src'), dragImg.attr('varID'));
+                Write2Bill();
+            } //end if has class furniture
+
+            //Pointing to the dragImg class in frame and add new class so that can identify for later actions.
+            dragImg.addClass("item-" + counts[0]);  //for identifying the specific piece clicked to delete it
+            dragImg.addClass("dragged2"); //added tag to be called by delete-all
+			
+            //resize the cloned image--would like to do this as soon as the drag begins instead of on drop.
+            oldWidth = dragImg.attr('width');
+            oldHeight = dragImg.height();  //necessary bc didn't set an attribute --need for firefox
+            dragImg.css("height", (oldHeight * 2.5));
+            dragImg.css("width", (oldWidth * 2.5));
+
+            //adjust the drop position to account for nav bar and image growth (use original image position but apply to clone)
+            var offsetXPos = parseInt(ui.offset.left);
+            var offsetYPos = parseInt(ui.offset.top), newPos;
+            newPos = {};
+            newPos.left = offsetXPos;
+            newPos.top = offsetYPos - 5;
+            dragImg.offset(newPos);
+            var uniquePic = $(".item-" + counts[0]);
+            uniquePic.removeClass("dragImg ui-draggable ui-draggable-dragging");
+
+
+//double click the clone to delete
+            uniquePic.dblclick(function () {
+                var itemToDelete = $(this).attr('title'); //get handle on what to remove from the array
+                RemoveItem(itemToDelete); //run the array delete on the double-clicked pic's title
+                $(this).remove(); //remove the double-clicked pic
+                Write2Bill();
+            });
+            make_draggable(uniquePic);
+            $(".imgSize-" + counts[0]).resizable(resizeOpts);
+        }  //end if (has class dragImg)
+        }  //end drop function
+      });  //end droppable
+
+
+var zIndex = 0;
+function make_draggable(elements){	
+	elements.draggable({
+		//distance: 20,  //must drag 20 px to trigger event
+		containment:'parent',
+		//start:function(e,ui){ ui.helper.css('z-index',++zIndex); }, //doesnt seem to be needed
+		stop:function(e,ui){
+		}
+	});	
+}     
+   });
+
+function Write2Bill(){
+    var totalString;
+    var billStringPrefix = "<table class='invoice'>";
+    var billString;
+    billString =""; //necessary before the additive loops
+    for (var i = 0; i < arrangements.length; i++) billString = billString + "<tr><td rowspan='2'>" + "<img class='thumb' src='" + arrangements[i].image + "'" + " alt='image of '" + arrangements[i].item + ">" + "</td><td><strong>" + arrangements[i].item + "</strong></td><td>" + arrangements[i].sku + "</td><td>" + arrangements[i].price + "</td></tr><tr><td class='billdescription' colspan='3'>" + arrangements[i].description + "</td></tr>"//end for
+    totalString = GetTotal();
+    totalString = "<tr><td class='totalRow' colspan='5'>" + "Total: <span class='totalText'>" + totalString + "</span></td></tr>";
+    billString = billStringPrefix + billString + "</table>";
+    document.getElementById("checkout").innerHTML = billString;
+    document.getElementById("checkoutHeader").innerHTML = "Your Order (Click for Details)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + totalString;
+} //end func WriteBill
+
+function AddItem(id, sku, price, description, image, variantID) {
+    var numItems = arrangements.length;
+    arrangements[numItems] = {item:id, sku:sku, price:price, description:description, image:image, variantID:variantID};
+}//end func AddItem
+
+function RemoveItem(id) {
+    for (var i = 0; i < arrangements.length; i++) {   //loop through all items
+        if (arrangements[i].item === id) {   //if you find this id remove the item
+            arrangements.splice(i,1);
+			//NEED CODE THAT IF ARRAY IS EMPTY RE-ADD PLACEHOLDER TEXT
+            break;
+        } //end if
+    } //end for
+    //reporter();
+} //end func RemoveItem
+
+function RemoveAllItems() {
+    arrangements = [];       //wipe the array of items
+	$(".dragged2").remove(); //remove all images on the frame (have class "dragged2")
+} //end func RemoveAllItems
+
+function GetTotal(){
+    //**********ERROR WONT RETURN PROMPT IF STILL ZERO
+    var Total = 0;
+    var curCost = 0;
+    for (var i = 0; i < arrangements.length; i++) {   //loop through all items
+            curCost = Number(arrangements[i].price);
+            //alert (curCost);
+            Total = Total + curCost;
+    } //end for
+	Total = parseFloat(Total).toFixed(2);  //round to 2 decimal.
+    document.getElementById("cart-button").style.visibility = Total > 0.01 ? "visible" : "hidden";
+    document.getElementById("cart-button2").style.visibility = Total > 0.01 ? "visible" : "hidden";
+    return Total;
+} //end func GetTotal
+
+function ToggleCasket(){
+var el = document.getElementById("frame");  //capture the frame object for later use
+var elImage = el.style.backgroundImage;   //read background image path
+//var withoutLastChunk = elImage.slice(0, elImage.lastIndexOf('/'));  //capture the path (whole prefix) to the image
+var lastChunk =elImage.slice(elImage.lastIndexOf('/')+1, elImage.length); //capture the filename string
+lastChunk = lastChunk.substring(0, lastChunk.length - 1); //clean the filename string
+lastChunk = lastChunk.replace(/"/g, ''); //addl. normalizing for firefox
+
+if (lastChunk == "")lastChunk = 'casket-med.jpg' //trap to catch initial round
+
+    if (lastChunk == 'casket-med.jpg') { // if open casket, load closed casket image
+        el.style.backgroundImage = "url('img/casket-closed-med.jpg')";
+    }
+    else if (lastChunk == 'casket-closed-med.jpg') {
+        el.style.backgroundImage = "url('img/casket-cemetery.jpg')";
+    }
+    else if (lastChunk == 'casket-cemetery.jpg') {
+        el.style.backgroundImage = "url('img/urn-layout.jpg')";
+    }
+    else if (lastChunk == 'urn-layout.jpg') {
+        el.style.backgroundImage = "url('img/urn-cemetery.jpg')";
+    }
+    else {
+        el.style.backgroundImage = "url('img/casket-med.jpg')";
+    }
+}	
+
+function PushToCart(){
+    var cart = [];
+    for (var i = 0; i < arrangements.length; i++) {   //loop through all items
+            cart.push(arrangements[i].variantID);               
+    }//end for
+    
+var f = document.createElement('form'); 
+f.style.display = 'none'; 
+f.id ='myform';
+f.action = "http://memorialhelpers.com/cart/add";  
+f.method = 'POST'; 
+ 
+ //need error catching if no items submitted (if-then)
+ var allIds = {};
+ for(i=0;i<cart.length;i++){   //loop through each variantId
+    allIds["landmark" + i] = document.createElement('input');
+    allIds["landmark" + i].setAttribute('type', 'hidden'); 
+    allIds["landmark" + i].setAttribute('name', 'id[]'); 
+    allIds["landmark" + i].setAttribute('value', cart[i]); 
+    f.appendChild(allIds["landmark" + i]); 
+  }
+//following block necessary for Firefox and IE to make the form real enough so they will submit
+var button = document.createElement("input");
+button.setAttribute('type', "submit");
+f.appendChild(button);
+document.getElementsByTagName("body")[0].appendChild(f);
+f.submit(); 
+return false;
+} //end func PushToCart
+
+
+$(function() {
+    $('.toggle-nav').click(function() {
+        // Calling a function in case you want to expand upon this.
+        toggleNav();
+    });
+});
+
+function toggleNav() {
+    var menuIcon = $("#menuicon");
+    var siteWrapper = $('#site-wrapper');
+    if (siteWrapper.hasClass('show-nav')) {
+        // Do things on Nav Close
+        siteWrapper.removeClass('show-nav');
+        //menuIcon.removeClass("fa-angle-double-left");
+        //menuIcon.addClass("fa-angle-double-right");
+		$("#opener").addClass("glyphicon-step-forward");
+		$("#opener").removeClass("glyphicon-step-backward");
+    } else {
+        // Do things on Nav Open
+        siteWrapper.addClass('show-nav');
+		$("#opener").addClass("glyphicon-step-backward");
+        $("#opener").removeClass("glyphicon-heart");
+		$("#opener").removeClass("glyphicon-step-forward");
+		
+       // menuIcon.removeClass("fa-angle-double-right");
+        //menuIcon.addClass("fa-angle-double-left");
+        //menuIcon.css("color", "white");
+        //menuIcon.css("font-size", "125%");
+       // menuIcon.parent().attr('title', 'Show/Hide Menu');
+    }
+}
+
+//allow escape key to close
+$(document).keyup(function(e) {
+    if (e.keyCode == 27) {
+        if ($('#site-wrapper').hasClass('show-nav')) {
+            toggleNav();
+        }
+    }
+});
+
+function scrolldown(){
+    $("html, body").animate({
+        scrollTop: $(document).height()
+    }, 4000);
+}
+
+function scrollup(){
+    $(".panel-items").scrollTop(0);
+$('.dragImg').select();
+}
+
+
+
